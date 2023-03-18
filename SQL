@@ -1,0 +1,52 @@
+Schema SQL
+
+Create Table stores(
+  store_id INT PRIMARY KEY,
+  store_name VARCHAR(255) NOT NULL,
+  phone VARCHAR (25),
+  email VARCHAR (255),
+  street VARCHAR (255),
+  city VARCHAR (255),
+  state VARCHAR (10),
+  zip_code VARCHAR (5)
+  );
+  
+  CREATE TABLE employee(
+    staff_id INT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    age INT,
+    email VARCHAR (255) NOT NULL UNIQUE,
+    phone VARCHAR (25),
+    store_id INT NOT NULL,
+    FOREIGN KEY (store_id)
+     REFERENCES stores (store_id)
+    );
+    
+ INSERT INTO stores
+ (store_id,store_name,phone,email,street,city,state,zip_code) 
+VALUES(1,"test1","521565162","test1@gmail.com","boulevard st","kutaisi","imereti","4600");
+
+INSERT INTO stores
+(store_id,store_name,phone,email,street,city,state,zip_code) 
+VALUES(2,"test2","531535363","test2@gmail.com","agmashenebeli","tbilisi","qartli","4500");
+
+INSERT INTO stores
+(store_id,store_name,phone,email,street,city,state,zip_code) 
+VALUES(3,"test3","511515112","test3@gmail.com","abashidze","telavi","kaketi","4130");
+
+INSERT INTO
+employee(staff_id,first_name,last_name,age,email,phone,store_id)
+VALUES
+(1,"John","Doe",30,"john.doe@example.com","555-5555",1);
+
+INSERT INTO
+employee(staff_id,first_name,last_name,age,email,phone,store_id)
+VALUES(2,"Jane","Smith",25,"jane.smith@example.com","555-5555",2);
+
+INSERT INTO
+employee(staff_id,first_name,last_name,age,email,phone,store_id)
+VALUES(3,"Bob","Johnson",35,"bob.johnson@example.com","555-5555",3);
+
+Query SQL
+SELECT *, staff_id, first_name, age FROM employee WHERE age >=30;
